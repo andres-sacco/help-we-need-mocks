@@ -1,0 +1,43 @@
+{
+	"mappings": [
+		{
+			"request": {
+				"method": "GET",
+				"urlPath": "/api/flights/catalog/city/CUN"
+			},
+			"response": {
+				"status": 200,
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"bodyFileName": "api-catalog/response-CUN.json"
+			}
+		},
+		{
+			"request": {
+				"method": "GET",
+				"urlPath": "/api/flights/catalog/city/BUE"
+			},
+			"response": {
+				"status": 200,
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"bodyFileName": "api-catalog/response-BUE.json"
+			}
+		},
+		{
+			"request": {
+				"method": "GET",
+				"urlPath": "/api/flights/catalog/city/MAD"
+			},
+			"response": {
+				"status": 200,
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"bodyFileName": "api-catalog/response-MAD.json"
+			}
+		}
+	]
+}

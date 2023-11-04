@@ -1,0 +1,13 @@
+{
+  "name": "Cancun",
+  "code": "CUN",
+  "timeZone": "America/Mexico",
+  "country": {
+    "name": "Mexico",
+    "code": "MX",
+    "continent": {
+      "name": "North America",
+      "code": "NA"
+    }
+  }
+}

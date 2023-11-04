@@ -1,0 +1,42 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/flights/catalog/city/MIA"
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/flights/catalog/city/PAR"
+      },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "api-catalog/response-PAR.json"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/flights/catalog/city/[0-9]{3}"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}

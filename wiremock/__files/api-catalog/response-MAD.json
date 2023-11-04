@@ -1,0 +1,13 @@
+{
+  "name": "Madrid",
+  "code": "MAD",
+  "timeZone": "Europe/Madrid",
+  "country": {
+    "name": "Spain",
+    "code": "ES",
+    "continent": {
+      "name": "Europe",
+      "code": "EU"
+    }
+  }
+}

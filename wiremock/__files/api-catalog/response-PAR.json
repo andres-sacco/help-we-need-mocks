@@ -1,0 +1,13 @@
+{
+  "name": "Paris",
+  "code": "PAR",
+  "timeZone": "Europe/Paris",
+  "country": {
+    "name": "France",
+    "code": "FR",
+    "continent": {
+      "name": "Europe",
+      "code": "EU"
+    }
+  }
+}
