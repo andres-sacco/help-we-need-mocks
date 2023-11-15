@@ -4,7 +4,7 @@ import com.twa.reservations.connector.CatalogConnector;
 import com.twa.reservations.connector.response.CityDTO;
 import com.twa.reservations.dto.SegmentDTO;
 import com.twa.reservations.enums.APIError;
-import com.twa.reservations.exception.EdteamException;
+import com.twa.reservations.exception.TWAException;
 import com.twa.reservations.dto.ReservationDTO;
 import com.twa.reservations.model.Reservation;
 import com.twa.reservations.repository.ReservationRepository;
@@ -45,14 +45,14 @@ public class ReservationService {
         Optional<Reservation> result = repository.getReservationById(id);
         if (result.isEmpty()) {
             LOGGER.debug("Not exist reservation with the id {}", id);
-            throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
+            throw new TWAException(APIError.RESERVATION_NOT_FOUND);
         }
         return conversionService.convert(result.get(), ReservationDTO.class);
     }
 
     public ReservationDTO save(ReservationDTO reservation) {
         if (Objects.nonNull(reservation.getId())) {
-            throw new EdteamException(APIError.RESERVATION_WITH_SAME_ID);
+            throw new TWAException(APIError.RESERVATION_WITH_SAME_ID);
         }
         checkCity(reservation);
 
@@ -64,7 +64,7 @@ public class ReservationService {
     public ReservationDTO update(Long id, ReservationDTO reservation) {
         if (getReservationById(id) == null) {
             LOGGER.debug("Not exist reservation with the id {}", id);
-            throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
+            throw new TWAException(APIError.RESERVATION_NOT_FOUND);
         }
         checkCity(reservation);
         Reservation transformed = conversionService.convert(reservation, Reservation.class);
@@ -75,7 +75,7 @@ public class ReservationService {
     public void delete(Long id) {
         if (getReservationById(id) == null) {
             LOGGER.debug("Not exist reservation with the id {}", id);
-            throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
+            throw new TWAException(APIError.RESERVATION_NOT_FOUND);
         }
 
         repository.delete(id);
@@ -87,7 +87,7 @@ public class ReservationService {
             CityDTO destination = catalogConnector.getCity(segmentDTO.getDestination());
 
             if (origin == null || destination == null) {
-                throw new EdteamException(APIError.VALIDATION_ERROR);
+                throw new TWAException(APIError.VALIDATION_ERROR);
             } else {
                 LOGGER.debug(origin.getName());
                 LOGGER.debug(destination.getName());

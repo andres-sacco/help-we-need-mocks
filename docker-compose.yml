@@ -1,0 +1,17 @@
+version: "3"
+services:
+  wiremock:
+    image: "wiremock/wiremock:3.2.0"
+    container_name: my_wiremock
+    volumes:
+      - ./__files:/home/wiremock/__files
+      - ./mappings:/home/wiremock/mappings
+    ports:
+      - 8080:8080
+    entrypoint: ["/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose"]
+    
+  wiremock-ui:
+    image: "adschosen/wiremock-ui:1.0.0"
+    container_name: my_wiremock_ui
+    ports:
+      - 3000:3000

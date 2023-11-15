@@ -1,6 +1,5 @@
 package com.twa.reservations.service;
 
-import com.github.tomakehurst.wiremock.standalone.WireMockServerRunner;
 import com.twa.reservations.dto.ItineraryDTO;
 import com.twa.reservations.dto.ReservationDTO;
 import com.twa.reservations.dto.SegmentDTO;
@@ -33,7 +32,8 @@ class ReservationServiceIntegrationTest {
 
         // Configure WireMock to use the mappings directory
         // This assumes your mappings are in the classpath under "wiremock" directory
-        WireMockConfiguration config = WireMockConfiguration.options().usingFilesUnderClasspath("src/test/resources/wiremock");
+        WireMockConfiguration config = WireMockConfiguration.options()
+                .usingFilesUnderClasspath("src/test/resources/wiremock");
         config.port(8080);
 
         // Create a new WireMockServer instance

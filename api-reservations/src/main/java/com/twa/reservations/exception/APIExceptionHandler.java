@@ -18,8 +18,8 @@ import java.util.List;
 @RestControllerAdvice
 public class APIExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(EdteamException.class)
-    public ResponseEntity<ErrorDTO> duplicateResource(EdteamException e, WebRequest request) {
+    @ExceptionHandler(TWAException.class)
+    public ResponseEntity<ErrorDTO> duplicateResource(TWAException e, WebRequest request) {
         return ResponseEntity.status(e.getStatus()).body(new ErrorDTO(e.getDescription(), e.getReasons()));
     }
 

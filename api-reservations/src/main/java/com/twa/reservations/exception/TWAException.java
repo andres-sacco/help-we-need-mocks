@@ -5,17 +5,17 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-public class EdteamException extends RuntimeException {
+public class TWAException extends RuntimeException {
     private HttpStatus status;
     private String description;
     private List<String> reasons;
 
-    public EdteamException(APIError error) {
+    public TWAException(APIError error) {
         this.status = error.getHttpStatus();
         this.description = error.getMessage();
     }
 
-    public EdteamException(HttpStatus status, String description, List<String> reasons) {
+    public TWAException(HttpStatus status, String description, List<String> reasons) {
         this.status = status;
         this.description = description;
         this.reasons = reasons;
