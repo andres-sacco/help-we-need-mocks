@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.edteam.reservations" level="debug"/>
+    <logger name="com.twa.reservations" level="debug"/>
 
     <root level="info">
         <appender-ref ref="STDOUT" />
